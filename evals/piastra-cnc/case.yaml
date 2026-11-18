@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: piastra-cnc
+expected_outcome: |
+  Programma Grbl che lavora contorno e 4 fori, profondità −12,5, senza mordere il pezzo.
+context:
+  scaffold_script: place-files.sh

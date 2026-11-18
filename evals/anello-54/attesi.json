@@ -1,0 +1,12 @@
+{
+ "anello": {
+  "raggio_interno_mm": 8.5944,
+  "volume_pieno_mm3": 482.265,
+  "facce_min": 20
+ },
+ "ingombro_mm": [
+  21.189,
+  21.189,
+  4
+ ]
+}

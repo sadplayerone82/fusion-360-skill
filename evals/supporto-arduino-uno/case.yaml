@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: supporto-arduino-uno
+expected_outcome: |
+  La skill legge la tavola ufficiale (p. 11), si accorge che la posizione del quarto foro non è quotata e lo chiede invece di inventarla; poi disegna un supporto con 4 colonnine sui fori della scheda alle posizioni date, 2 fori per avvitarlo alla mensola, giochi dalla skill stampa-3d; .f3d, 3MF, immagini, resoconto.
+context:
+  scaffold_script: place-files.sh

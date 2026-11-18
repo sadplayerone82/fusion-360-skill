@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: scatola-raspberry-pi-4
+expected_outcome: |
+  Scatola in due parti (fondo e coperchio, componenti separati) per Raspberry Pi 4 secondo la tavola ufficiale: colonnine per viti M2.5 esattamente sul rettangolo 58 × 49, aperture per USB-C, 2 micro-HDMI, audio, Ethernet e 2 doppie USB sulle coordinate ufficiali, giochi e spessori decisi con la skill stampa-3d e dichiarati; scheda inserita come componente senza interferenze; .f3d, 3MF, immagini, resoconto.
+context:
+  scaffold_script: place-files.sh

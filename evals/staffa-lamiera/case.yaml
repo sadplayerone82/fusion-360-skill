@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: staffa-lamiera
+expected_outcome: |
+  Lamiera vera con sviluppo 80.655 = 65 + 20 − 2(R+T) + π/2(R+K·T), DXF con le stesse misure.
+context:
+  scaffold_script: place-files.sh

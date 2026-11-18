@@ -1,0 +1,10 @@
+{
+ "stampa": true,
+ "altezza_mm": [
+  80,
+  130
+ ],
+ "spessore_min_mm": 1.2,
+ "stabile": true,
+ "cavo_frazione_max": 0.6
+}

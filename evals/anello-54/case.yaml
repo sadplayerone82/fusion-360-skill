@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: anello-54
+expected_outcome: |
+  Diametro interno 54/π = 17.1887 mm; scritta incisa, non in rilievo (il cilindro che entra resta quello).
+context:
+  scaffold_script: place-files.sh

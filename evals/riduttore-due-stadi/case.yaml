@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: riduttore-due-stadi
+expected_outcome: |
+  Riduttore 12:1 con ruote, sedi, cuscinetti, giunti, moto collegato, franchi, montaggio e distinta; fase 3 a 15:1 per modifica.
+context:
+  scaffold_script: place-files.sh

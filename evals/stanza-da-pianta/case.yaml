@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: stanza-da-pianta
+expected_outcome: |
+  Muri da pianta DXF in scala giusta (il DXF non ha unità), aperture alle quote date.
+context:
+  scaffold_script: place-files.sh

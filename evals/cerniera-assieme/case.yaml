@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: cerniera-assieme
+expected_outcome: |
+  Assieme con ali e perno, giunto di rotazione con limiti 0–180°, nessuna interferenza alle tre aperture.
+context:
+  scaffold_script: place-files.sh

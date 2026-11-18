@@ -1,0 +1,11 @@
+{
+ "volume_mm3": 5129.386,
+ "ingombro_mm": [
+  63,
+  63,
+  3
+ ],
+ "facce": 6,
+ "solido_non_mesh": true,
+ "confronto_step": "nist_ftc_11_asme1_rb.stp"
+}

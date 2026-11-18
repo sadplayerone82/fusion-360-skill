@@ -1,0 +1,8 @@
+{
+ "giunto": {
+  "tipo": "rotazione",
+  "min_gradi": 0,
+  "max_gradi": 180
+ },
+ "componenti_min": 2
+}

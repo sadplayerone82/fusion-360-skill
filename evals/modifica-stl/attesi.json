@@ -1,0 +1,30 @@
+{
+ "volume_mm3": 7717.257,
+ "tol_volume_pct": 0.1,
+ "ingombro_mm": [
+  80,
+  20,
+  5
+ ],
+ "solido_non_mesh": true,
+ "fori_rel": [
+  {
+   "nome": "F1",
+   "centro": [
+    10,
+    10,
+    2.5
+   ],
+   "diametro": 6
+  },
+  {
+   "nome": "F2",
+   "centro": [
+    70,
+    10,
+    2.5
+   ],
+   "diametro": 6
+  }
+ ]
+}

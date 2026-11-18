@@ -1,0 +1,23 @@
+{
+ "ingombro_mm": [
+  148,
+  90,
+  62
+ ],
+ "tol_ingombro_mm": 1.0,
+ "assieme": {
+  "componenti_min": 6,
+  "giunti_rotazione_min": 4,
+  "aperto": {
+   "ingombro_mm": [
+    251,
+    362,
+    72
+   ],
+   "tol_mm": 1.0,
+   "giunti_mossi_min": 4
+  }
+ },
+ "forma": true,
+ "giudizio_utente": true
+}

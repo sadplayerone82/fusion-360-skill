@@ -1,0 +1,100 @@
+{
+ "volume_mm3": 14553000000,
+ "ingombro_mm": [
+  5600,
+  4600,
+  2700
+ ],
+ "sonde_rel": [
+  {
+   "nome": "vano porta",
+   "punto": [
+    1750,
+    150,
+    1000
+   ],
+   "atteso": "vuoto"
+  },
+  {
+   "nome": "sopra la porta",
+   "punto": [
+    1750,
+    150,
+    2400
+   ],
+   "atteso": "pieno"
+  },
+  {
+   "nome": "accanto alla porta",
+   "punto": [
+    1000,
+    150,
+    1000
+   ],
+   "atteso": "pieno"
+  },
+  {
+   "nome": "vano finestra",
+   "punto": [
+    5450,
+    2300,
+    1500
+   ],
+   "atteso": "vuoto"
+  },
+  {
+   "nome": "sotto la finestra",
+   "punto": [
+    5450,
+    2300,
+    500
+   ],
+   "atteso": "pieno"
+  },
+  {
+   "nome": "sopra la finestra",
+   "punto": [
+    5450,
+    2300,
+    2400
+   ],
+   "atteso": "pieno"
+  },
+  {
+   "nome": "centro stanza",
+   "punto": [
+    2800,
+    2300,
+    1350
+   ],
+   "atteso": "vuoto"
+  },
+  {
+   "nome": "muro sud",
+   "punto": [
+    4000,
+    150,
+    1350
+   ],
+   "atteso": "pieno"
+  },
+  {
+   "nome": "muro nord",
+   "punto": [
+    2800,
+    4450,
+    1350
+   ],
+   "atteso": "pieno"
+  },
+  {
+   "nome": "muro ovest",
+   "punto": [
+    150,
+    2300,
+    1350
+   ],
+   "atteso": "pieno"
+  }
+ ]
+}

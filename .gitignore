@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# Elenco degli strumenti del server MCP: lo scrive `ambiente.py --salva-strumenti` sul PC di ognuno
+scripts/strumenti-mcp.json
+
+# Cartelle che Fusion crea accanto a un .f3d salvato su file quando il progetto ha riferimenti esterni
+_XRef_/
+
+# Progetti: vanno nella cartella dei progetti delle impostazioni, non nel repository
+Progetti-Fusion/
+
+# File temporanei di sistema e degli editor
+Thumbs.db
+desktop.ini
+.DS_Store
+*.tmp
+*.bak
+*~
+.vscode/
+.idea/

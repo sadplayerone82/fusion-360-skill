@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: esame-09b-nist-ctc01
+expected_outcome: |
+  Esame finale, pezzo 09b (specifica congelata SPEC-07-10 §09): dal pezzo NIST CTC 1 (STEP senza storia + tavola PMI) un modello parametrico con schizzi vincolati e feature con nomi. Verità misurata (studio/fonti/banco-nist/verita.json, ricontrollata con il calcolo ad alta precisione): volume 14 642 819,209 mm³, ingombro 800 × 450 × 150, 139 facce.
+context:
+  scaffold_script: place-files.sh

@@ -1,0 +1,51 @@
+{
+ "volume_mm3": 177587.257,
+ "ingombro_mm": [
+  150,
+  100,
+  12
+ ],
+ "gcode": {
+  "raggio": 1.98375,
+  "z_fine": -12.5,
+  "copertura": 70
+ },
+ "fori_rel": [
+  {
+   "nome": "F1",
+   "centro": [
+    15,
+    15,
+    6
+   ],
+   "diametro": 8
+  },
+  {
+   "nome": "F2",
+   "centro": [
+    135,
+    15,
+    6
+   ],
+   "diametro": 8
+  },
+  {
+   "nome": "F3",
+   "centro": [
+    15,
+    85,
+    6
+   ],
+   "diametro": 8
+  },
+  {
+   "nome": "F4",
+   "centro": [
+    135,
+    85,
+    6
+   ],
+   "diametro": 8
+  }
+ ]
+}
