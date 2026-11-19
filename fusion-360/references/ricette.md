@@ -5,7 +5,7 @@ writing the API from memory: misremembered functions were the main cause of erro
 
 These are the **essential** recipes, written for a real model (constrained, parametric). Everything else that was tested,
 with the exact code and the measured result, is in the `ricette-*.md` files (sketches and planes, 21 solid features, surfaces/freeform/
-sheet metal, assemblies, editing/importing, production/views/render) and the screw dimensions in `dati-standard.md`.
+sheet metal, assemblies, editing/importing, manufacturing/views/render) and the screw dimensions in `dati-standard.md`.
 
 Index: 1 header · 2 constrained centred rectangle · 3 L profile on the XZ plane · 4 extrudes · 5 fillets chosen by geometry ·
 6 holes in a pattern · 7 countersunk and counterbored · 8 aligned points without over-constraint · 9 engraved text · 10 snap hook · 11 involute

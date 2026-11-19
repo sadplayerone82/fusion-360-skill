@@ -12,10 +12,10 @@ the branch of the method (`metodo.md` §10), where the tested recipes are, and t
 | 5 | Assemblies and mechanisms | assemblies | `ricette-assiemi.md`, `ricette-stampi-mesh-pezzi.md` (derive) | derived parameters do not update; assembly constraints and contacts not tested |
 | 6 | Architecture and interiors | architecture | `tavole-e-render.md`; sketches/extrudes in metres | no BIM: only geometry towards Revit and similar |
 | 7 | Furniture and woodworking | idea / CNC | bodies = panels; `ricette-cam.md` | cut list from a script (BOM is paid) |
-| 8 | Sheet metal and 2D cutting | production | `ricette-lamiera-form-costruzione.md` | after «Refold» the part may end up rotated: re-check |
-| 9 | CNC machining | production | `ricette-cam.md` | slowed rapids (Personal license) |
-| 10 | 3D printing | production | `produzione-e-stampa.md` + printing skill | — |
-| 11 | Molds (silicone, casting) | production | `ricette-stampi-mesh-pezzi.md` | — |
+| 8 | Sheet metal and 2D cutting | manufacturing | `ricette-lamiera-form-costruzione.md` | after «Refold» the part may end up rotated: re-check |
+| 9 | CNC machining | manufacturing | `ricette-cam.md` | slowed rapids (Personal license) |
+| 10 | 3D printing | manufacturing | `produzione-e-stampa.md` + printing skill | — |
+| 11 | Molds (silicone, casting) | manufacturing | `ricette-stampi-mesh-pezzi.md` | — |
 | 12 | Jewelry (rings, pendants) | idea | `ricette-decori-anelli.md` (ISO 8653 size: Ø = size/π) | national sizes only from a table actually read |
 | 13 | Cosplay and sculpted objects | idea / file | splitting into parts and mesh in `ricette-stampi-mesh-pezzi.md` | Form from sketch has no API |
 | 14 | Spare parts, reverse engineering | photo / file | `ricette-foto-tavole.md` (perspective), mesh → solid | a measured reference is needed in the photo |

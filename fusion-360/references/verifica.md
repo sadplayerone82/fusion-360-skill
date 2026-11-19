@@ -18,8 +18,8 @@ None of these gives a message. Only the comparison with a value computed beforeh
 ## 2. After every step (`progetto_locale.Progetto.passo`)
 Measure volume, bodies, timeline elements, elements in error; compare with the expected value. Tolerances: dimensions **0.01 mm**, model
 volume **0.01 %**, exported mesh volume **0.1 %**.
-If it does not match: **find the cause by measuring** the geometry (radii and dimensions of cylindrical faces, bounding boxes). In the tests once
-the calculation was wrong (the counterbore went past the edge of the base), another time the reading of the drawing (a chamfer that would have pierced the
+If it does not match: **find the cause by measuring** the geometry (radii and dimensions of cylindrical faces, bounding boxes). In the tests the culprit was once
+the calculation (the counterbore went past the edge of the base), another time the reading of the drawing (a chamfer that would have pierced the
 wall). Fix what is really wrong; do not bend the model to the number.
 
 ## 3. Model report (`scripts/rapporto_modello.py`)
@@ -67,9 +67,9 @@ with the wrong side (Ø 8 holes machined from outside, plate 146 × 96), failed.
 
 ## 6c. Minimum thickness and form (before every delivery)
 - `python -X utf8 scripts/spessore_minimo.py --limite <mm>` measures for every body the minimum distance between opposite faces; below the
-  limit it says «FERMARE LA CONSEGNA» (= stop the delivery). The limit is **always chosen** according to production and passed with `--limite` (do not rely on the
+  limit it says «FERMARE LA CONSEGNA» (= stop the delivery). The limit is **always chosen** according to manufacturing and passed with `--limite` (do not rely on the
   script's default value): 3D printing: 2 nozzle lines (e.g. 0.8 with a 0.4 nozzle); wood/CNC:
-  from the material; without production, only for viewing or rendering: `--limite 1`, and decorative details below the limit are declared.
+  from the material; without manufacturing, only for viewing or rendering: `--limite 1`, and decorative details below the limit are declared.
   It is mandatory: in a real project the most serious defect (a part too thin) had been seen by the user, not by the other checks. Limit: it does not measure rounded sharp tips. In assemblies it measures one body per
   call and repeated bodies only once (`occorrenze`, `secondi_per_pezzo`); a thin purchased part (a 0.64 pin)
   triggers the limit: it is explained in the report, not hidden.

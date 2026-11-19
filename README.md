@@ -44,7 +44,7 @@ Request, in Claude Code with Fusion open:
 
 What happens:
 1. Claude checks that Fusion and the MCP server respond.
-2. It asks the questions it needs (for example: through holes? centered on the height? how will the part be made?) and **waits**.
+2. It asks the questions it needs (for example: through holes? centered on the 40 mm side? how will the part be made?) and **waits**.
 3. It writes the specification and the expected values: solid volume 60 × 40 × 5 = 12 000 mm³; each Ø 6 through hole removes π × 3² × 5 ≈ 141.4 mm³,
    so the finished part measures ≈ 11 717.3 mm³.
 4. It creates the project folder and models in steps (sketch, extrude, holes), measuring after every step.
@@ -73,12 +73,12 @@ Other typical requests:
 
 ## Installation
 Commands are written in two versions: **PowerShell** (`$env:USERPROFILE`) and **Command Prompt, cmd** (`%USERPROFILE%`).
-Use the one of the window you opened.
+Use the one that matches the window you opened.
 
 **1. Download the repository** («Code» button → «Download ZIP» and extract, or `git clone`).
 
 **2. Copy the skill folder `fusion-360` into the Claude Code skills folder**, **without** its `evals/` folder (it contains test
-cases for those who develop the skill: Claude does not need them). Run the command **from the downloaded repository folder, the one
+cases for people who develop the skill: Claude does not need them). Run the command **from the downloaded repository folder, the one
 that contains `README.md`, `fusion-360` and `fusion-360-it`**:
 
 PowerShell:
@@ -225,5 +225,5 @@ Reports and proposals are welcome, as repository «issues». For a problem attac
   (the last lines of Fusion's logs);
 - the Fusion version (Help → About) and the license type (Personal or commercial).
 
-Those who modify the skill find the test cases in `fusion-360/evals/` and `fusion-360-it/evals/` (see `evals/LEGGIMI.md` in each folder); a change
+People who modify the skill find the test cases in `fusion-360/evals/` and `fusion-360-it/evals/` (see `evals/LEGGIMI.md` in each folder); a change
 should be made in both versions. The changes of each version are in `CHANGELOG.md`.

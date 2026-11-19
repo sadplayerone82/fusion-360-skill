@@ -27,7 +27,7 @@ data management is single-user. **Only in the paid version**: **automated** draw
 | BOM table and balloons in drawings | balloons have no API; BOM table only in the automatic drawing of an assembly |
 
 ## What has no API (done by hand or another way)
-T-spline forms from sketch, bridge and repair (there are only primitives, edge insertion and TSM files); Solid primitives
+T-spline forms from sketch, bridge and repair (there are only primitives, edge insertion and TSM files); solid primitives
 (use sketch + extrude); component color cycling in the view; deleting or moving drawing objects.
 
 ## Rules that follow

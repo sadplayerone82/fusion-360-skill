@@ -1,10 +1,10 @@
-# Production: 3D printing, CNC, sheet metal and cutting (only if the user declares it)
+# Manufacturing: 3D printing, CNC, sheet metal and cutting (only if the user declares it)
 
-Production is **not assumed**: ask how the part will be made (phase 1 of the method). If it will not be produced, deliver the `.f3d`
+Manufacturing is **not assumed**: ask how the part will be made (phase 1 of the method). If it will not be manufactured, deliver the `.f3d`
 with STEP, images and the drawing if any.
 
 ## 0. Which branch
-| Declared production | What to do | Where |
+| Declared manufacturing | What to do | Where |
 |---|---|---|
 | **FDM printing** | printing decisions with a 3D printing skill, if installed (`skill_stampa` in `impostazioni.json`), **before** modeling; §1–5 below | — |
 | **CNC** (mill, wood, aluminium) | stock, **real** tools from the manufacturer's data sheets (JSON), 2D/2.5D toolpaths, machine post-processor chosen by name, G-code checked (contour, tool radius, depth) | `ricette-cam.md` |

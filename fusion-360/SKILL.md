@@ -79,7 +79,7 @@ Use the code of the **tested recipes** instead of the API from memory; before a 
 model to the number. An error found is fixed **on its own**, without redoing everything.
 
 **J5 Verification** — `scripts/rapporto_modello.py` (0 elements in error, 0 unconstrained sketches, measurements = expected); **probe points** written from the
-specification (`scripts/sonde.py`: volume, bounding box and center of mass do not see a wrong hole circle); assemblies: no interpenetration and
+specification (`scripts/sonde.py sonde.json`, file format at the top of the script: volume, bounding box and center of mass do not see a wrong hole circle); assemblies: no interpenetration and
 measured clearances (interference 0 only says the parts do not interpenetrate: `scripts/controlla_pezzi.py`);
 **minimum thickness** of every body (`scripts/spessore_minimo.py --limite <mm>`, limit chosen according to manufacturing and written in the
 specification: below the limit the delivery stops; «NON MISURATO» (= not measured) is not a green light: measure another way); for objects that stand on a surface,

@@ -4,12 +4,12 @@
 A part «with the right shape» is not enough: when the user asks «make it 10 mm longer» or «holes farther apart», a badly built
 model **breaks without errors**. Test done: the same plate built as a beginner (fixed coordinates) and as a professional
 (parameters, constraints, names), then length 60 → 90 and thickness 5 → 8. The beginner has 0 Fusion errors but 2 violations of the intent
-(a hole 38 mm from the edge instead of 8, the pin off-centre); the professional 0. In research (Camba et al. 2016, CAD 74) the ordered
-«resilient» method (RMS) halved or quartered the editing times (115 s against 630 s unstructured, experiment 1).
+(a hole 38 mm from the edge instead of 8, the pin off-center); the professional 0. In research (Camba et al. 2016, CAD 74) the ordered
+«resilient» method (RMS) cut editing times by half to three quarters (115 s versus 630 s unstructured, experiment 1).
 
 ## 1. The intent, first of all
 Write in one sentence what must stay true if the dimensions change: «the holes stay 12 mm from the free end and symmetric», «the pin
-stays in the centre». Propose it yourself to the user in simple words and ask for confirmation: they do not know the term, but they know what they need.
+stays in the center». Propose it yourself to the user in simple words and ask for confirmation: they do not know the term, but they know what they need.
 Parameters and constraints follow from it.
 
 ## 2. User parameters
@@ -68,4 +68,4 @@ test uncovers.
 | **Editing** an existing project | find it in the projects list, reopen the latest version, change **one** parameter or feature at a time, save a new version | `modificare-importare-copiare.md` |
 | **Architecture** (house, room) | metres, walls from sketch with thicknesses as parameters, openings as cuts, floor plan from DXF (DXF has no units: scale factor) or from an image as canvas; dimensioned drawing | `tavole-e-render.md`, `modificare-importare-copiare.md` (canvas to scale) |
 | **Assemblies** and multi-file projects | several parts in the same space → first `progetti-a-piu-pezzi.md`; components before geometry, joints with limits, no interpenetration and clearances measured; skeleton in one file and **derived** parts: **geometry** propagates, derived parameters do not (re-check after every change) | `ricette-assiemi.md`, `ricette-stampi-mesh-pezzi.md` |
-| **Production** (only if declared) | FDM printing → printing skill (`skill_stampa` in `impostazioni.json`); CNC → `ricette-cam.md`; sheet metal/laser → flat pattern and DXF; none → `.f3d` + STEP/images/drawing | `produzione-e-stampa.md` |
+| **Manufacturing** (only if declared) | FDM printing → printing skill (`skill_stampa` in `impostazioni.json`); CNC → `ricette-cam.md`; sheet metal/laser → flat pattern and DXF; none → `.f3d` + STEP/images/drawing | `produzione-e-stampa.md` |
