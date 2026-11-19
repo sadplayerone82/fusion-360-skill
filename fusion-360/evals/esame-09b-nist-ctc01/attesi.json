@@ -1,0 +1,11 @@
+{
+ "volume_mm3": 14642819.209,
+ "ingombro_mm": [
+  800,
+  450,
+  150
+ ],
+ "facce": 139,
+ "solido_non_mesh": true,
+ "confronto_step": "nist_ctc_01_asme1_rd.stp"
+}

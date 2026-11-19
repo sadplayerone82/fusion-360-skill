@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: supporto-arduino-uno
+expected_outcome: |
+  The skill reads the official drawing (p. 11), notices that the position of the fourth hole is not dimensioned and asks for it instead of inventing it; then it draws a holder with 4 standoffs on the board holes at the given positions, 2 holes to screw it to the shelf, clearances from the stampa-3d skill; .f3d, 3MF, images, report.
+context:
+  scaffold_script: place-files.sh

@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: anello-54
+expected_outcome: |
+  Inner diameter 54/π = 17.1887 mm; lettering engraved, not embossed (the cylinder that goes on the finger stays the same).
+context:
+  scaffold_script: place-files.sh

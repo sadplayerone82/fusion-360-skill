@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: esame-12-mouse-ergonomico
+expected_outcome: |
+  Oggetto mai visto: modello dettagliato del mouse Logitech MX Master 3S, un corpo tutto curvo. Misure ufficiali Logitech 124,9 × 84,3 × 51 mm ±1. Si giudicano: ingombro, almeno 3 componenti (corpo, rotella, rotella del pollice o pulsanti), nessuna compenetrazione, pulizia del modello; gli avvisi di forma povera sono riportati; il caso è superato solo se l'utente lo promuove guardando le immagini.
+context:
+  scaffold_script: place-files.sh

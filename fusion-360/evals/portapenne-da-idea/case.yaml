@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: portapenne-da-idea
+expected_outcome: |
+  A real pen holder from a vague request: questions before modeling, parameters, minimum thickness checked, stable, hollow.
+context:
+  scaffold_script: place-files.sh

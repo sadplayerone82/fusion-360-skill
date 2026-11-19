@@ -1,25 +1,34 @@
-# Novità
+# Changelog
 
-Le versioni seguono il versionamento semantico (maggiore.minore.correzione); la più recente sta in cima.
+Versions follow semantic versioning (major.minor.patch); the most recent is at the top.
+
+## [1.1.0] — 2026-11-19
+English version; Italian version moved to fusion-360-it.
+
+### Changed
+- The English skill is in the `fusion-360/` folder (skill name `fusion-360`); the Italian one is in `fusion-360-it/` (skill name
+  `fusion-360-it`). Install only one of the two.
+- `README.md`, `LICENSE`, `CHANGELOG.md` and `.gitignore` are at the repository root; the Italian README is `fusion-360-it/README.md`.
+- Test cases (`evals/`): removed references to the private development bench; all numbers unchanged.
 
 ## [1.0.0] — 2026-11-18
-Prima versione pubblica.
+First public version.
 
-### Contenuto
-- **SKILL.md**: il flusso di lavoro dall'ambiente alla consegna, con un controllo a ogni passo (ambiente, richiesta e specifica,
-  produzione se dichiarata, piano e valori attesi, progetto, modellazione a passi misurati, verifica, flessibilità, uscite, tavole e
-  render, consegna, ripresa); i punti in cui fermarsi ad aspettare l'utente; le trappole che danno pezzi sbagliati senza errori.
-- **Riferimenti** (`references/`): connettore e API con le trappole misurate; metodo e rami di lavoro; 19 scenari d'uso; progetti a
-  più pezzi; forma e dettaglio per gli oggetti da riconoscere; verifica; ricette provate per famiglia (schizzi, solidi, superfici,
-  lamiera, assiemi, importazione e modifica, viste e render, decori, stampi e mesh, foto e tavole, CNC, forme libere); elenco dei
-  comandi di Fusion con API e disponibilità nella licenza Personal; dati standard (filettature, fori di passaggio, viti, inserti,
-  cuscinetti); limiti della licenza Personal.
-- **Script** (`scripts/`): controllo dell'ambiente e degli strumenti MCP; impostazioni fuori dalla skill; collegamento al server MCP;
-  progetti locali a passi misurati con registro e ripresa; rapporto del modello; punti sonda; interferenze e franchi negli assiemi;
-  spessore minimo; segni di forma povera; analisi di stabilità; controllo dei file 3MF; controllo del G-code; foto in prospettiva e
-  misure da foto; simboli per le tavole; lettura dei registri di Fusion.
-- **Modelli** (`assets/`): specifica e resoconto.
-- **Casi di prova** (`evals/`): esempi per chi sviluppa la skill, con il loro formato in `evals/LEGGIMI.md`.
+### Contents
+- **SKILL.md**: the workflow from the environment to delivery, with a check at every step (environment, request and specification,
+  manufacturing if declared, plan and expected values, project, modeling in measured steps, verification, flexibility, outputs, drawings and
+  renders, delivery, resuming); the points where to stop and wait for the user; the traps that give wrong parts without errors.
+- **References** (`references/`): connector and API with the measured traps; method and work branches; 19 usage scenarios; projects with
+  several parts; form and detail for recognizable objects; verification; tested recipes by family (sketches, solids, surfaces,
+  sheet metal, assemblies, import and modification, views and renders, decorations, molds and meshes, photos and drawings, CNC, free forms); list of
+  Fusion commands with API and availability in the Personal license; standard data (threads, clearance holes, screws, inserts,
+  bearings); limits of the Personal license.
+- **Scripts** (`scripts/`): check of the environment and of the MCP tools; settings outside the skill; connection to the MCP server;
+  local projects in measured steps with project log and resuming; model report; probe points; interferences and clearances in assemblies;
+  minimum thickness; poor-form signs; stability analysis; check of 3MF files; check of G-code; perspective photos and
+  measurements from photos; symbols for drawings; reading Fusion's logs.
+- **Templates** (`assets/`): specification and report.
+- **Test cases** (`evals/`): examples for those who develop the skill, with their format in `evals/LEGGIMI.md`.
 
-### Provato
-- Fusion build 2706.1.x, licenza Personal, Windows, modello Opus (novembre 2026). Esiti nella sezione «Validazione» del README.
+### Tested
+- Fusion build 2706.1.x, Personal license, Windows, Opus model (November 2026). Results in the «Validation» section of the README.

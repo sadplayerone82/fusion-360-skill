@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: esame-11-esp32
+expected_outcome: |
+  Part 11: snap-fit holder printed in PETG for the ESP32-DevKitC V4 (board 27.94 × 48.26, 2 rows of 19 pins at 25.40 with 2.54 pitch, antenna protruding 6.04 and 18 wide, micro-USB at the center of the bottom side, no holes). Board inserted as a component. Judged: at least 2 components, no interpenetration between holder and board, valid 3MF, model cleanliness. Free antenna, free pins and snap hooks are read in the report and in the images.
+context:
+  scaffold_script: place-files.sh

@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: modifica-stl
+expected_outcome: |
+  The mesh is not stretched by hand: bracket rebuilt as an 80 mm parametric solid with the holes 10 from the ends.
+context:
+  scaffold_script: place-files.sh

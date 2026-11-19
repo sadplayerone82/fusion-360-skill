@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: esame-09b-nist-ctc01
+expected_outcome: |
+  Pezzo 09b: dal pezzo NIST CTC 1 (STEP senza storia + tavola PMI) un modello parametrico con schizzi vincolati e feature con nomi. Verità misurata sul file STEP del NIST (ricontrollata con il calcolo ad alta precisione): volume 14 642 819,209 mm³, ingombro 800 × 450 × 150, 139 facce.
+context:
+  scaffold_script: place-files.sh

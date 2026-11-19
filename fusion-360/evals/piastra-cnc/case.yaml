@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: piastra-cnc
+expected_outcome: |
+  Grbl program that machines the contour and 4 holes, depth −12.5, without gouging the part.
+context:
+  scaffold_script: place-files.sh

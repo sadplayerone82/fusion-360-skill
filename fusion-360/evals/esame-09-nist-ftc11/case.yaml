@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: esame-09-nist-ftc11
+expected_outcome: |
+  Part 09a: from the NIST FTC 11 part (STEP without history + PMI drawing) a parametric model with constrained sketches and named features. Verity measured on the NIST STEP file: volume 5 129.386 mm³, bounding box 63 × 63 × 3, 6 faces. The CTC 1 part (complex, 139 faces) is case 09b.
+context:
+  scaffold_script: place-files.sh

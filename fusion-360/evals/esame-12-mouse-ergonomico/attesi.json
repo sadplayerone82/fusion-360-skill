@@ -1,0 +1,13 @@
+{
+ "ingombro_mm": [
+  124.9,
+  84.3,
+  51
+ ],
+ "tol_ingombro_mm": 1.0,
+ "assieme": {
+  "componenti_min": 3
+ },
+ "forma": true,
+ "giudizio_utente": true
+}

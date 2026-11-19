@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: esame-10-dji-mini3
+expected_outcome: |
+  Part 10: assembly of the DJI Mini 3 with body, 4 folding arms on revolute joints, motors, propellers, gimbal. Delivered folded: bounding box 148 × 90 × 62 ±1 mm (DJI dimensions). Judged: at least 6 components, at least 4 revolute joints, no interpenetration in the delivered position, folded bounding box, model cleanliness. The open position (251 × 362 × 72) is declared by the report; the rest is judged by the user from the images.
+context:
+  scaffold_script: place-files.sh

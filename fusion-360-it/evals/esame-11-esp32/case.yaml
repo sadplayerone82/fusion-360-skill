@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: esame-11-esp32
+expected_outcome: |
+  Pezzo 11: supporto a incastro stampato in PETG per ESP32-DevKitC V4 (scheda 27,94 × 48,26, 2 file di 19 pin a 25,40 con passo 2,54, antenna che sporge 6,04 larga 18, micro-USB al centro del lato inferiore, nessun foro). Scheda inserita come componente. Si giudicano: almeno 2 componenti, nessuna compenetrazione fra supporto e scheda, 3MF valido, pulizia del modello. Antenna libera, pin liberi e ganci si leggono nel resoconto e nelle immagini.
+context:
+  scaffold_script: place-files.sh

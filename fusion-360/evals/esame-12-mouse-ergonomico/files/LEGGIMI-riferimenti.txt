@@ -1,0 +1,2 @@
+Next to this file, in the «riferimenti» folder, go the manufacturer's official images (at least 2 views), when the user has had
+them downloaded. If the folder is not there, the images are not available: ask the user for them in the questions.

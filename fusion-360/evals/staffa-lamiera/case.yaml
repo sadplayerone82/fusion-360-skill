@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: staffa-lamiera
+expected_outcome: |
+  Real sheet metal with flat pattern 80.655 = 65 + 20 − 2(R+T) + π/2(R+K·T), DXF with the same dimensions.
+context:
+  scaffold_script: place-files.sh

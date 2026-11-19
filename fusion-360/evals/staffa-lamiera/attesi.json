@@ -1,0 +1,17 @@
+{
+ "volume_mm3": 20222.622,
+ "ingombro_mm": [
+  100,
+  65,
+  20
+ ],
+ "lamiera": true,
+ "sviluppo_mm": [
+  100,
+  80.655
+ ],
+ "dxf_mm": [
+  100,
+  80.655
+ ]
+}

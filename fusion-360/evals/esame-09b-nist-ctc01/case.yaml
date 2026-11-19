@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: esame-09b-nist-ctc01
+expected_outcome: |
+  Part 09b: from the NIST CTC 1 part (STEP without history + PMI drawing) a parametric model with constrained sketches and named features. Verity measured on the NIST STEP file (re-checked with the high-precision computation): volume 14 642 819.209 mm³, bounding box 800 × 450 × 150, 139 faces.
+context:
+  scaffold_script: place-files.sh

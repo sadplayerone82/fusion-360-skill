@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: cerniera-assieme
+expected_outcome: |
+  Assembly with leaves and pin, revolute joint with limits 0–180°, no interference at the three openings.
+context:
+  scaffold_script: place-files.sh

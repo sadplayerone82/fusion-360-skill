@@ -1,6 +1,0 @@
-schema_version: "1.1"
-name: esame-10-dji-mini3
-expected_outcome: |
-  Esame finale, pezzo 10 (specifica congelata SPEC-07-10 §10): assieme del DJI Mini 3 con scocca, 4 bracci ripiegabili su giunti di rotazione, motori, eliche, gimbal. Consegnato piegato: ingombro 148 × 90 × 62 ±1 mm (misure DJI). Si giudicano: almeno 6 componenti, almeno 4 giunti di rotazione, nessuna compenetrazione nella posizione consegnata, ingombro piegato, pulizia del modello. La posizione aperta (251 × 362 × 72) la dichiara il resoconto; il resto lo giudica l'utente dalle immagini.
-context:
-  scaffold_script: place-files.sh

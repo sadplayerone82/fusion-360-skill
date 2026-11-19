@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: stanza-da-pianta
+expected_outcome: |
+  Walls from a DXF floor plan at the correct scale (the DXF has no units), openings at the given dimensions.
+context:
+  scaffold_script: place-files.sh

@@ -1,104 +1,109 @@
-# fusion-360 — skill per Claude Code
+🇮🇹 Versione italiana: [fusion-360-it/README.md](fusion-360-it/README.md)
 
-> **Italian-language skill for Claude Code that drives Autodesk Fusion through its official MCP server.**
->
-> It turns a request (words, a dimensioned drawing, photos, a STEP/STL file or an existing project) into a parametric Fusion model
-> that is built step by step, measured after every step against values computed beforehand, and saved as a local `.f3d` file with
-> the outputs you need (STEP, 3MF, DXF, CNC G-code, PDF drawing, images) and a written report of what was and was not checked.
-> Windows only; works with the Fusion Personal licence. Instructions, messages and reports are in Italian.
+# fusion-360 — skill for Claude Code
 
-Questa skill fa lavorare Claude in **Autodesk Fusion** come un progettista CAD: dalla richiesta al **modello parametrico controllato**,
-salvato in un file `.f3d` sul PC, con un resoconto che dice che cosa è stato verificato e che cosa no.
+This skill makes Claude work in **Autodesk Fusion** like a CAD designer: from the request to a **checked parametric model**,
+saved as an `.f3d` file on the PC, with a report that says what was verified and what was not.
 
-La skill **non è affiliata ad Autodesk** né approvata da Autodesk. «Autodesk» e «Fusion» sono marchi dei rispettivi proprietari.
+The repository contains two versions of the same skill:
+- `fusion-360/` — **English** (skill name `fusion-360`);
+- `fusion-360-it/` — **Italian** (skill name `fusion-360-it`, instructions in [fusion-360-it/README.md](fusion-360-it/README.md)).
 
-## Che cosa fa
-- **Modella** pezzi meccanici, custodie per schede elettroniche, oggetti nati da un'idea, prodotti da riconoscere, mobili e stanze,
-  gioielli, stampi, lamiera, **assiemi** che si muovono (giunti).
-- **Parte da** una richiesta a parole, una tavola quotata (immagine o PDF), foto, un file STEP, STL o DXF, oppure un progetto esistente
-  da modificare.
-- **Lavora a passi misurati**: per ogni passo calcola prima il valore atteso (volume, ingombro, posizioni) e lo confronta con quello
-  misurato in Fusion. Se un numero non torna cerca la causa invece di andare avanti.
-- **Chiede** le misure che mancano invece di inventarle, e si ferma ad aspettare le risposte.
-- **Consegna** il `.f3d` (versione nuova, mai sovrascritta), le uscite che servono (STEP, 3MF, DXF, G-code CNC controllato, tavola
-  PDF, immagini) e un `resoconto.md`.
-- **Rispetta la licenza Personal**: sa quali funzioni sono a pagamento (`references/limiti-personal.md`), non compra niente, non usa
-  crediti e salva nel cloud solo con il tuo permesso.
+**Install only one of the two**: they do the same thing and must not be installed together.
+File names, script names and script outputs are kept in Italian so both versions stay in sync.
 
-**Per chi è**: per chi usa Fusion e vuole far fare a Claude il modello (o una modifica) con controlli veri; anche per chi non è un
-disegnatore CAD e descrive l'oggetto a parole.
+The skill is **not affiliated with Autodesk** nor endorsed by Autodesk. «Autodesk» and «Fusion» are trademarks of their respective owners.
 
-**Che cosa NON fa**
-- Non funziona senza Fusion aperto sul PC e senza il suo server MCP: non è un CAD a sé.
-- Non fa slicing per la stampa 3D, schemi elettrici né circuiti stampati.
-- Non è pensata per altri programmi CAD (Rhino, FreeCAD, Blender, OpenSCAD…).
-- Non garantisce che un pezzo prodotto funzioni: il resoconto dice fin dove è arrivata la verifica; prove e misure sul pezzo vero
-  restano a te.
+## What it does
+- **Models** mechanical parts, enclosures for electronic boards, objects born from an idea, recognizable products, furniture and rooms,
+  jewelry, molds, sheet metal, moving **assemblies** (joints).
+- **Starts from** a verbal request, a dimensioned drawing (image or PDF), photos, a STEP, STL or DXF file, or an existing project
+  to modify.
+- **Works in measured steps**: for every step it first computes the expected value (volume, bounding box, positions) and compares it with the one
+  measured in Fusion. If a number does not match it looks for the cause instead of going on.
+- **Asks** for the missing dimensions instead of inventing them, and stops to wait for the answers.
+- **Delivers** the `.f3d` (new version, never overwritten), the outputs needed (STEP, 3MF, DXF, checked CNC G-code, PDF
+  drawing, images) and a `resoconto.md` (report).
+- **Respects the Personal license**: it knows which features are paid (`fusion-360/references/limiti-personal.md`), buys nothing, uses no
+  credits and saves to the cloud only with your permission.
 
-## Un esempio
-Richiesta, in Claude Code con Fusion aperto:
+**Who it is for**: people who use Fusion and want Claude to build the model (or a modification) with real checks; also for people who are not
+CAD designers and describe the object in words.
 
-> mi fai in Fusion una piastra 60 × 40 × 5 con due fori da 6 a 8 mm dai bordi corti?
+**What it does NOT do**
+- It does not work without Fusion open on the PC and without its MCP server: it is not a CAD program of its own.
+- It does no slicing for 3D printing, no electrical schematics and no printed circuit boards.
+- It is not meant for other CAD programs (Rhino, FreeCAD, Blender, OpenSCAD…).
+- It does not guarantee that a manufactured part works: the report says how far verification went; tests and measurements on the real part
+  are up to you.
 
-Che cosa succede:
-1. Claude controlla che Fusion e il server MCP rispondano.
-2. Fa le domande che servono (per esempio: fori passanti? centrati sull'altezza? il pezzo come verrà prodotto?) e **aspetta**.
-3. Scrive la specifica e i valori attesi: volume pieno 60 × 40 × 5 = 12 000 mm³; ogni foro Ø 6 passante toglie π × 3² × 5 ≈ 141,4 mm³,
-   quindi il pezzo finito misura ≈ 11 717,3 mm³.
-4. Crea la cartella del progetto e modella a passi (schizzo, estrusione, fori), misurando dopo ogni passo.
-5. Verifica: schizzi vincolati, nessun elemento in errore, posizioni dei fori, spessore minimo; poi cambia i parametri principali per
-   vedere che il modello resta giusto, e li rimette com'erano.
-6. Consegna, nella cartella del progetto: `consegna\piastra-v1.f3d`, STEP, due immagini (iso e fronte), `resoconto.md` con la tabella
-   «atteso / misurato / esito» e l'elenco di ciò che non è stato controllato.
+## An example
+Request, in Claude Code with Fusion open:
 
-Altre richieste tipiche:
-- «ti allego la tavola (PDF): rifammi il pezzo in Fusion» → legge le quote, chiede quelle che mancano, confronta il volume.
-- «ho questo STEP, rifallo parametrico» → ricostruisce il pezzo e confronta la forma con lo STEP.
-- «fammi un modello del mouse X, che si riconosca» → concorda prima il livello di dettaglio e vuole immagini di riferimento in scala.
-- «mi serve un supporto per questa scheda, con la scheda dentro» → assieme con la scheda come componente, giochi misurati, nessuna
-  compenetrazione.
+> can you make me a 60 × 40 × 5 plate in Fusion with two 6 mm holes 8 mm from the short edges?
 
-## Requisiti
-| Cosa | Versione | Note |
+What happens:
+1. Claude checks that Fusion and the MCP server respond.
+2. It asks the questions it needs (for example: through holes? centered on the height? how will the part be made?) and **waits**.
+3. It writes the specification and the expected values: solid volume 60 × 40 × 5 = 12 000 mm³; each Ø 6 through hole removes π × 3² × 5 ≈ 141.4 mm³,
+   so the finished part measures ≈ 11 717.3 mm³.
+4. It creates the project folder and models in steps (sketch, extrude, holes), measuring after every step.
+5. Verification: constrained sketches, no elements in error, hole positions, minimum thickness; then it changes the main parameters to
+   see that the model stays correct, and puts them back as they were.
+6. Delivery, in the project folder: `consegna\piastra-v1.f3d`, STEP, two images (iso and front), `resoconto.md` with the table
+   «expected / measured / result» and the list of what was not checked.
+
+Other typical requests:
+- «here is the drawing (PDF): rebuild the part in Fusion» → reads the dimensions, asks for the missing ones, compares the volume.
+- «I have this STEP, make it parametric» → rebuilds the part and compares the form with the STEP.
+- «make me a model of mouse X, recognizable» → first agrees on the level of detail and wants reference images to scale.
+- «I need a holder for this board, with the board inside» → assembly with the board as a component, measured clearances, no
+  interpenetration.
+
+## Requirements
+| What | Version | Notes |
 |---|---|---|
-| Windows | 10 o 11 | Avvio di Fusion, finestre e registri sono scritti per Windows. Su macOS non è provata. |
-| Autodesk Fusion | recente, con il **server MCP ufficiale** | Provata con le build 2706.1.x (ottobre–novembre 2026). Il server si accende in Preferenze → Generale → API. Fusion si aggiorna da solo: vedi «Risoluzione dei problemi». |
-| Licenza di Fusion | Personal va bene | La skill evita le funzioni a pagamento. Con la Personal il cloud ha 10 posti: la skill salva i progetti come file `.f3d` sul PC; solo le tavole 2D usano 2 documenti nel cloud, e solo con il tuo permesso. |
-| Python | **3.11 o più recente** | Lo richiede scipy 1.16. Pacchetti in `scripts/requirements.txt` (numpy, Pillow, scipy). |
-| Claude Code | recente | Provata con il modello Opus; con modelli più piccoli non è stata provata. |
-| git | facoltativo | Se c'è, ogni progetto ha il suo storico locale (niente invii in rete). |
-| Una skill di stampa 3D | facoltativa | Usata solo se dichiari che il pezzo va stampato in FDM. Non è inclusa: senza, la skill applica le regole minime di `references/produzione-e-stampa.md`. |
+| Windows | 10 or 11 | Fusion startup, dialogs and logs are written for Windows. Not tested on macOS. |
+| Autodesk Fusion | recent, with the **official MCP server** | Tested with builds 2706.1.x (October–November 2026). The server is turned on in Preferences → General → API. Fusion updates itself: see «Troubleshooting». |
+| Fusion license | Personal is fine | The skill avoids paid features. With Personal the cloud has 10 slots: the skill saves projects as `.f3d` files on the PC; only 2D drawings use 2 cloud documents, and only with your permission. |
+| Python | **3.11 or newer** | Required by scipy 1.16. Packages in `fusion-360/scripts/requirements.txt` (numpy, Pillow, scipy). |
+| Claude Code | recent | Tested with the Opus model; not tested with smaller models. |
+| git | optional | If present, every project has its own local history (nothing is sent over the network). |
+| A 3D printing skill | optional | Used only if you declare that the part will be FDM printed. Not included: without it, the skill applies the minimum rules of `fusion-360/references/produzione-e-stampa.md`. |
 
-## Installazione
-I comandi sono scritti in due versioni: **PowerShell** (`$env:USERPROFILE`) e **Prompt dei comandi, cmd** (`%USERPROFILE%`).
-Usa quella della finestra che hai aperto.
+## Installation
+Commands are written in two versions: **PowerShell** (`$env:USERPROFILE`) and **Command Prompt, cmd** (`%USERPROFILE%`).
+Use the one of the window you opened.
 
-**1. Scarica il repository** (pulsante «Code» → «Download ZIP» ed estrai, oppure `git clone`).
+**1. Download the repository** («Code» button → «Download ZIP» and extract, or `git clone`).
 
-**2. Copia la skill nella cartella delle skill di Claude Code**, **senza** la cartella `evals/` (contiene i casi di prova per chi
-sviluppa la skill: a Claude non servono). Lancia il comando **dalla cartella del repository scaricato, quella che contiene
-`SKILL.md`**:
+**2. Copy the skill folder `fusion-360` into the Claude Code skills folder**, **without** its `evals/` folder (it contains test
+cases for those who develop the skill: Claude does not need them). Run the command **from the downloaded repository folder, the one
+that contains `README.md`, `fusion-360` and `fusion-360-it`**:
 
 PowerShell:
 ```powershell
-robocopy . "$env:USERPROFILE\.claude\skills\fusion-360" /E /XD evals .git __pycache__
+robocopy fusion-360 "$env:USERPROFILE\.claude\skills\fusion-360" /E /XD evals __pycache__
 ```
 cmd:
 ```bat
-robocopy . "%USERPROFILE%\.claude\skills\fusion-360" /E /XD evals .git __pycache__
+robocopy fusion-360 "%USERPROFILE%\.claude\skills\fusion-360" /E /XD evals __pycache__
 ```
-robocopy finisce con un riepilogo; i codici d'uscita da 0 a 7 vogliono dire «riuscito».
+Do **not** also copy `fusion-360-it`: install only one of the two versions (for the Italian one follow
+[fusion-360-it/README.md](fusion-360-it/README.md)). If you previously installed the other version, delete its folder
+(`.claude\skills\fusion-360-it`) first.
+robocopy ends with a summary; exit codes from 0 to 7 mean «succeeded».
 
-**3. Accendi il server MCP in Fusion**: Preferenze → Generale → API → attiva il server MCP di Fusion. Gira solo sul tuo PC, sulla
-porta 27182.
+**3. Turn on the MCP server in Fusion**: Preferences → General → API → enable the Fusion MCP server. It runs only on your PC, on
+port 27182.
 
-**4. Collega Claude Code al server** (comando uguale in PowerShell e in cmd):
+**4. Connect Claude Code to the server** (same command in PowerShell and in cmd):
 ```
 claude mcp add --transport http --scope user autodesk-fusion http://127.0.0.1:27182/mcp
 ```
-Poi riavvia Claude Code. `claude mcp list` deve mostrare `autodesk-fusion`.
+Then restart Claude Code. `claude mcp list` must show `autodesk-fusion`.
 
-**5. Entra nella cartella della skill installata** (i passi seguenti si lanciano tutti da qui):
+**5. Go into the installed skill folder** (the following steps are all run from here):
 
 PowerShell:
 ```powershell
@@ -109,12 +114,12 @@ cmd:
 cd /d "%USERPROFILE%\.claude\skills\fusion-360"
 ```
 
-**6. Installa i pacchetti Python** (controlla prima con `python --version` che sia 3.11 o più recente; se `python` non c'è, prova `py`):
+**6. Install the Python packages** (first check with `python --version` that it is 3.11 or newer; if `python` is missing, try `py`):
 ```
 python -m pip install -r scripts\requirements.txt
 ```
 
-**7. Crea le impostazioni**, cioè la cartella dove finiranno i progetti:
+**7. Create the settings**, that is the folder where the projects will go:
 
 PowerShell:
 ```powershell
@@ -124,100 +129,101 @@ cmd:
 ```bat
 python -X utf8 scripts\impostazioni.py --crea --cartella-progetti "%USERPROFILE%\Documents\Progetti-Fusion"
 ```
-Il file si chiama `impostazioni.json` e sta in `.claude\fusion-360\` dentro la tua cartella utente, **fuori** dalla skill: una
-reinstallazione non lo cancella. `python -X utf8 scripts\impostazioni.py --mostra` lo mostra. Se non hai una skill di stampa 3D,
-aprilo con un editor di testo e metti `"skill_stampa": null`.
+The file is called `impostazioni.json` and lives in `.claude\fusion-360\` inside your user folder, **outside** the skill: a
+reinstall does not delete it. `python -X utf8 scripts\impostazioni.py --mostra` shows it. If you do not have a 3D printing skill,
+open it with a text editor and set `"skill_stampa": null`.
 
-**8. Controlla l'ambiente**, con Fusion aperto:
+**8. Check the environment**, with Fusion open:
 ```
 python -X utf8 scripts\ambiente.py
 ```
-Deve rispondere `"si_puo_lavorare": true`. Alla prima volta avvisa che manca l'elenco degli strumenti: è normale, vedi il passo 9.
+It must answer `"si_puo_lavorare": true` (= work can start). The first time it warns that the tool list is missing: this is normal, see step 9.
 
-**9. Una volta sola, con Fusion aperto**, salva l'elenco degli strumenti del server MCP. Serve ad accorgersi, dopo un aggiornamento di
-Fusion, se gli strumenti sono cambiati:
+**9. Once only, with Fusion open**, save the MCP server's tool list. It is used to notice, after a Fusion update,
+whether the tools have changed:
 ```
 python -X utf8 scripts\ambiente.py --salva-strumenti
 ```
 
-`-X utf8` serve: senza, su Windows le lettere accentate rompono l'uscita degli script.
+`-X utf8` is needed: without it, on Windows accented letters break the scripts' output.
 
-## Prima prova
-Apri Fusion e, in Claude Code, scrivi:
+## First test
+Open Fusion and, in Claude Code, write:
 
-> mi fai in Fusion una piastra 60 × 40 × 5 con due fori da 6 a 8 mm dai bordi corti?
+> can you make me a 60 × 40 × 5 plate in Fusion with two 6 mm holes 8 mm from the short edges?
 
-Che cosa aspettarsi: Claude fa le domande che servono e si ferma; dopo le tue risposte crea la cartella del progetto nella cartella
-delle impostazioni, modella a passi misurando ogni passo e consegna `.f3d`, immagini e `resoconto.md` (vedi «Un esempio» qui sopra).
-Se il volume finale è vicino a 11 717 mm³ (con fori Ø 6 passanti) e il resoconto elenca i controlli fatti, l'installazione funziona.
+What to expect: Claude asks the questions it needs and stops; after your answers it creates the project folder in the settings'
+projects folder, models in steps measuring every step and delivers `.f3d`, images and `resoconto.md` (see «An example» above).
+If the final volume is close to 11 717 mm³ (with Ø 6 through holes) and the report lists the checks made, the installation works.
 
-## Risoluzione dei problemi
-| Che cosa vedi | Che cosa fare |
+## Troubleshooting
+| What you see | What to do |
 |---|---|
-| `ambiente.py` dice che il server MCP non risponde | Fusion deve essere aperto, una copia sola. Controlla Preferenze → Generale → API (server MCP acceso, porta 27182). Controlla `claude mcp list`. Dopo aver aggiunto il server, riavvia Claude Code. |
-| Il server risponde ma gli script non partono | Quasi sempre Fusion ha una finestra aperta che blocca i comandi. Dopo una chiusura forzata Fusion riparte con la finestra **«Documenti recuperati»**: chiudila (Chiudi) e riprova. |
-| Fusion «Non risponde» durante un calcolo lungo | Su modelli ricchi (centinaia di schizzi, scritte, trame) un'operazione fatta su tutto in una volta può bloccare Fusion per decine di minuti. Aspetta: chiuderlo a forza fa perdere il lavoro dall'ultimo passo salvato. La skill sa che va lavorato a gruppi: `references/connettore-e-api.md`, tabella delle trappole, riga «Una chiamata che non finisce più». |
-| Un comando delle tavole 2D resta in attesa | Fusion aspetta un clic: premi Esc in Fusion e riprova. |
-| `ambiente.py` avvisa che gli strumenti MCP sono cambiati | Fusion si è aggiornato da solo e il server potrebbe essersi comportato diversamente: alcune ricette potrebbero non valere più. Prova un pezzo semplice (la piastra); se va, rilancia `ambiente.py --salva-strumenti`. Se qualcosa si rompe, apri una segnalazione (vedi «Contribuire»). |
-| Lettere accentate sbagliate o errori di codifica | Lancia gli script con `python -X utf8`. |
+| `ambiente.py` says the MCP server does not respond | Fusion must be open, a single copy. Check Preferences → General → API (MCP server on, port 27182). Check `claude mcp list`. After adding the server, restart Claude Code. |
+| The server responds but scripts do not start | Almost always Fusion has a dialog open that blocks commands. After a forced close Fusion restarts with the **«Recovered documents»** dialog: close it (Close) and try again. |
+| Fusion «Not responding» during a long computation | On rich models (hundreds of sketches, texts, textures) an operation done on everything at once can freeze Fusion for tens of minutes. Wait: force-closing it loses the work since the last saved step. The skill knows it must work in groups: `fusion-360/references/connettore-e-api.md`, traps table, row «A call that never ends». |
+| A 2D drawing command stays waiting | Fusion is waiting for a click: press Esc in Fusion and try again. |
+| `ambiente.py` warns that the MCP tools have changed | Fusion updated itself and the server may behave differently: some recipes may no longer hold. Try a simple part (the plate); if it works, run `ambiente.py --salva-strumenti` again. If something breaks, open an issue (see «Contributing»). |
+| Wrong accented letters or encoding errors | Run the scripts with `python -X utf8`. |
 
-## Validazione
-La skill è stata provata in Fusion (licenza Personal, novembre 2026, modello Opus), su casi veri:
-- **pezzi da tavole quotate**, cioè disegni tecnici con le quote, anche con quote mancanti da chiedere;
-- **pezzi da file STEP** dei casi di prova pubblici del NIST (l'ente statunitense degli standard), confrontando la forma con lo STEP;
-- **assiemi** con giunti (cerniera, riduttore a due stadi) e **custodie** per schede elettroniche (Raspberry Pi 4, Arduino Uno,
-  ESP32), con la scheda inserita come componente;
-- lamiera, CNC con G-code, una stanza da una pianta DXF, la modifica di un STL, un oggetto da un'idea;
-- **oggetti da riconoscere** (un mouse, un drone), giudicati da una persona guardando le immagini accanto a quelle ufficiali.
+## Validation
+The skill was tested in Fusion (Personal license, November 2026, Opus model), on real cases:
+- **parts from dimensioned drawings**, that is technical drawings with dimensions, including missing dimensions to ask for;
+- **parts from STEP files** from the public test cases of NIST (the US standards agency), comparing the form with the STEP;
+- **assemblies** with joints (hinge, two-stage gear reducer) and **enclosures** for electronic boards (Raspberry Pi 4, Arduino Uno,
+  ESP32), with the board inserted as a component;
+- sheet metal, CNC with G-code, a room from a DXF floor plan, the modification of an STL, an object from an idea;
+- **recognizable objects** (a mouse, a drone), judged by a person looking at the images next to the official ones.
 
-Ogni caso aveva valori da controllare decisi prima (volumi, ingombri, posizioni, numero di componenti, nessuna compenetrazione,
-schizzi vincolati, file d'uscita validi), misurati sul modello consegnato.
+Every case had values to check decided beforehand (volumes, bounding boxes, positions, number of components, no interpenetration,
+constrained sketches, valid output files), measured on the delivered model.
 
-Esiti, senza abbellimenti:
-- Casi usati durante lo sviluppo: 11 superati su 11, con una sola esecuzione per caso. Messa a confronto con Claude senza la skill:
-  alla pari su 4 casi semplici; sul riduttore a due stadi 18 controlli su 18 con la skill e 12 su 18 senza (senza la skill il modello
-  non aveva giunti e non si muoveva). Una sola esecuzione per condizione: un indizio, non una prova statistica.
-- Prima serie di 11 pezzi nuovi, al primo tentativo: **8 superati su 11**. Non superati: un anello da STEP (una quota presa dalla
-  tavola invece che dal 3D), un supporto per scheda (piedini dentro la scheda) e un drone giusto nei numeri ma respinto sulla forma
-  («una scatola con barre»).
-- Dopo le correzioni, seconda serie:
+Results, without embellishment:
+- Cases used during development: 11 passed out of 11, with a single run per case. Compared with Claude without the skill:
+  even on 4 simple cases; on the two-stage gear reducer 18 checks out of 18 with the skill and 12 out of 18 without (without the skill the model
+  had no joints and did not move). A single run per condition: a hint, not statistical proof.
+- First series of 11 new parts, at the first attempt: **8 passed out of 11**. Not passed: a ring from STEP (a dimension taken from the
+  drawing instead of from the 3D), a board holder (feet inside the board) and a drone correct in the numbers but rejected on form
+  («a box with bars»).
+- After the corrections, second series:
 
-  | Caso | Esito |
+  | Case | Result |
   |---|---|
-  | Pezzo complesso da STEP (139 facce), al primo tentativo | 11 controlli su 11, forma identica allo STEP |
-  | Anello da STEP + tavola, rifatto | 11 su 11 (ora chiede quale fonte vale) |
-  | Supporto per scheda ESP32, rifatto | 9 su 9 |
-  | Mouse ergonomico, oggetto mai visto | 10 su 10, **approvato** dalla persona sulle immagini |
-  | Drone pieghevole, rifatto | 12 su 14, **non superato**: molto meglio del primo, ma meccanismi non progettati (cerniere senza fine corsa né scatti, gusci senza interno, gimbal senza motori, niente vista esplosa) |
+  | Complex part from STEP (139 faces), at the first attempt | 11 checks out of 11, form identical to the STEP |
+  | Ring from STEP + drawing, redone | 11 out of 11 (now asks which source prevails) |
+  | ESP32 board holder, redone | 9 out of 9 |
+  | Ergonomic mouse, never-seen object | 10 out of 10, **approved** by the person on the images |
+  | Folding drone, redone | 12 out of 14, **not passed**: much better than the first, but mechanisms not engineered (hinges without end stops or detents, shells without interior, gimbal without motors, no exploded view) |
 
-- Dopo il drone la skill chiede anche il **livello funzionale** (solo aspetto o funzionante: `references/forma-e-dettaglio.md`).
-  Questa regola non è ancora stata provata con un nuovo drone.
+- After the drone the skill also asks for the **functional level** (appearance only or working: `fusion-360/references/forma-e-dettaglio.md`).
+  This rule has not yet been tested with a new drone.
 
-## Limiti
-- I numeri giusti non garantiscono la forma: per gli oggetti da riconoscere il giudizio finale è di chi guarda le immagini.
-- Meccanismi realistici (cerniere con scatti, interni, motori) in oggetti complessi: sono il punto più debole (vedi il drone).
-- Tavole 2D: servono 2 documenti nel cloud (con il tuo permesso) e alcuni comandi possono bloccare Fusion (la skill dice come uscirne).
-- Forme libere via script: provate con sezioni ellittiche e contorni ricalcati, loft, raccordi e guscio; T-spline solo da primitive.
-- Modelli molto ricchi: alcune operazioni fatte tutte insieme bloccano Fusion per minuti; la skill lavora a gruppi.
-- Fusion in una lingua diversa dall'italiano è stato provato poco o per niente: alcuni controlli leggono i nomi dei comandi.
-- Provata solo su Windows e solo con il modello Opus.
-- Fusion cambia con gli aggiornamenti automatici: ricette e trappole sono state misurate su una versione precisa.
-- Lingua: istruzioni, messaggi e resoconti in italiano.
+## Limits
+- Correct numbers do not guarantee the form: for recognizable objects the final judgment belongs to whoever looks at the images.
+- Realistic mechanisms (hinges with detents, interiors, motors) in complex objects: they are the weakest point (see the drone).
+- 2D drawings: they need 2 cloud documents (with your permission) and some commands can freeze Fusion (the skill says how to get out).
+- Free forms via script: tested with elliptical sections and traced outlines, loft, fillets and shell; T-spline only from primitives.
+- Very rich models: some operations done all together freeze Fusion for minutes; the skill works in groups.
+- Fusion in a language other than Italian has been tested little or not at all: some checks read command names.
+- Tested only on Windows and only with the Opus model.
+- Fusion changes with automatic updates: recipes and traps were measured on a specific version.
+- Language: Claude answers in the user's language; file names, script names and script outputs are in Italian.
 
-## Licenza
-MIT, testo completo nel file `LICENSE`.
+## License
+MIT, full text in the [`LICENSE`](LICENSE) file.
 
 Copyright (c) 2026 sadplayerone82
 
-I file d'ingresso di terzi usati negli esempi di `evals/` non sono coperti da questa licenza: le fonti e le condizioni sono in
-`evals/LEGGIMI.md`.
+The third-party input files used in the `evals/` examples are not covered by this license: sources and terms are in
+`fusion-360/evals/LEGGIMI.md` (and `fusion-360-it/evals/LEGGIMI.md`).
 
-## Contribuire
-Segnalazioni e proposte sono benvenute, come «issue» del repository. Per un problema allega, se puoi:
-- un file `.f3d` o STEP d'esempio che lo mostra (senza dati riservati);
-- il `resoconto.md` della skill e, se c'è, il `registro.json` della cartella del progetto;
-- l'uscita di `python -X utf8 scripts\ambiente.py` e, se Fusion si è bloccato, di `python -X utf8 scripts\registri.py dialogo`
-  (le ultime righe dei registri di Fusion);
-- la versione di Fusion (Guida → Informazioni) e il tipo di licenza (Personal o commerciale).
+## Contributing
+Reports and proposals are welcome, as repository «issues». For a problem attach, if you can:
+- an example `.f3d` or STEP file that shows it (without confidential data);
+- the skill's `resoconto.md` and, if present, the `registro.json` of the project folder;
+- the output of `python -X utf8 scripts\ambiente.py` and, if Fusion froze, of `python -X utf8 scripts\registri.py dialogo`
+  (the last lines of Fusion's logs);
+- the Fusion version (Help → About) and the license type (Personal or commercial).
 
-Chi modifica la skill trova i casi di prova in `evals/` (vedi `evals/LEGGIMI.md`). Le novità di ogni versione sono in `CHANGELOG.md`.
+Those who modify the skill find the test cases in `fusion-360/evals/` and `fusion-360-it/evals/` (see `evals/LEGGIMI.md` in each folder); a change
+should be made in both versions. The changes of each version are in `CHANGELOG.md`.

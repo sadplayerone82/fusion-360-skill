@@ -1,0 +1,15 @@
+{
+ "condizionato": "serve 1 posto libero nel cloud per una tavola NUOVA: una tavola riusata contiene già quote e simboli non cancellabili",
+ "tavola": {
+  "testi": [
+   "80",
+   "30",
+   "10"
+  ],
+  "immagini_min": 2,
+  "foglio_mm": [
+   420,
+   297
+  ]
+ }
+}

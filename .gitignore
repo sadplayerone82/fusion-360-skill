@@ -2,16 +2,17 @@
 __pycache__/
 *.pyc
 
-# Elenco degli strumenti del server MCP: lo scrive `ambiente.py --salva-strumenti` sul PC di ognuno
-scripts/strumenti-mcp.json
+# List of the MCP server tools: written by `ambiente.py --salva-strumenti` on each PC (both skill folders)
+fusion-360/scripts/strumenti-mcp.json
+fusion-360-it/scripts/strumenti-mcp.json
 
-# Cartelle che Fusion crea accanto a un .f3d salvato su file quando il progetto ha riferimenti esterni
+# Folders that Fusion creates next to an .f3d saved to file when the project has external references
 _XRef_/
 
-# Progetti: vanno nella cartella dei progetti delle impostazioni, non nel repository
+# Projects: they go in the projects folder from the settings, not in the repository
 Progetti-Fusion/
 
-# File temporanei di sistema e degli editor
+# Temporary system and editor files
 Thumbs.db
 desktop.ini
 .DS_Store

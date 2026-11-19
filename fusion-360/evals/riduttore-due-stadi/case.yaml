@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: riduttore-due-stadi
+expected_outcome: |
+  12:1 reducer with gears, seats, bearings, joints, linked motion, clearances, assembly and bill of materials; phase 3 at 15:1 by modification.
+context:
+  scaffold_script: place-files.sh

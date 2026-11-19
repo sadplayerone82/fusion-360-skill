@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: scatola-raspberry-pi-4
+expected_outcome: |
+  Two-part enclosure (bottom and lid, separate components) for Raspberry Pi 4 according to the official drawing: standoffs for M2.5 screws exactly on the 58 × 49 rectangle, openings for USB-C, 2 micro-HDMI, audio, Ethernet and 2 double USB at the official coordinates, clearances and thicknesses decided with the stampa-3d skill and declared; board inserted as a component without interferences; .f3d, 3MF, images, report.
+context:
+  scaffold_script: place-files.sh
