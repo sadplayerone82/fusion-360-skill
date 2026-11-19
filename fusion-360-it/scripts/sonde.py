@@ -67,10 +67,12 @@ def controlla(sonde, sessione=None):
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     if len(sys.argv) < 2:
-        print(__doc__); sys.exit(2)
+        print(__doc__); sys.exit(0)  # senza argomenti: l'uso, come --help
     r = controlla(espandi(json.load(open(sys.argv[1], encoding="utf-8"))))
     print(json.dumps(r, ensure_ascii=False, indent=1))
     sys.exit(1 if r["sbagliate"] else 0)
 
 if __name__ == "__main__":
+    if sys.argv[1:2] in (["-h"], ["--help"]):  # aiuto senza Fusion
+        sys.stdout.reconfigure(encoding="utf-8"); print(__doc__); sys.exit(0)
     main()

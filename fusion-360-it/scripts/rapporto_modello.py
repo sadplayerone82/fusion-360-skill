@@ -32,6 +32,8 @@ def breve(rap):
             "cancello_J5": not rap["timeline"]["non_sani"] and not rap["schizzi_non_vincolati"] and all(c["solido"] for c in rap["corpi"])}
 
 if __name__ == "__main__":
+    if sys.argv[1:2] in (["-h"], ["--help"]):  # aiuto senza Fusion
+        sys.stdout.reconfigure(encoding="utf-8"); print(__doc__); sys.exit(0)
     sys.stdout.reconfigure(encoding="utf-8")
     rap = rapporto()
     print(json.dumps(breve(rap) if "--breve" in sys.argv else rap, indent=2, ensure_ascii=False))

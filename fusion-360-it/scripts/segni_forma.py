@@ -91,4 +91,6 @@ def main():
     print(json.dumps({"totale": ris["totale"], "avvisi": ris["avvisi"], "feature": ris["feature"], "corpi": ris["corpi"]}, ensure_ascii=False, indent=1))
 
 if __name__ == "__main__":
+    if sys.argv[1:2] in (["-h"], ["--help"]):  # aiuto senza Fusion
+        sys.stdout.reconfigure(encoding="utf-8"); print(__doc__); sys.exit(0)
     main()

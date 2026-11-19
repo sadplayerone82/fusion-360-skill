@@ -2,6 +2,12 @@
 
 Versions follow semantic versioning (major.minor.patch); the most recent is at the top.
 
+## [1.1.1] — 2026-11-19
+
+### Fixed
+- Scripts: `-h`/`--help` (and `sonde.py` with no arguments) print the usage and exit with code 0 without touching Fusion
+  (before, `spessore_minimo.py --help` started measuring and `sonde.py --help` crashed; same fix in 13 other command-line scripts).
+
 ## [1.1.0] — 2026-11-19
 English version; Italian version moved to fusion-360-it.
 

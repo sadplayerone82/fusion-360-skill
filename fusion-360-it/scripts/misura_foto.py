@@ -78,4 +78,6 @@ def main():
     print(json.dumps(r, indent=2, ensure_ascii=False))
 
 if __name__ == "__main__":
+    if sys.argv[1:2] in (["-h"], ["--help"]):  # aiuto senza Fusion
+        sys.stdout.reconfigure(encoding="utf-8"); print(__doc__); sys.exit(0)
     main()
