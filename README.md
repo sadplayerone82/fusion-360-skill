@@ -5,6 +5,8 @@
 This skill makes Claude work in **Autodesk Fusion** like a CAD designer: from the request to a **checked parametric model**,
 saved as an `.f3d` file on the PC, with a report that says what was verified and what was not.
 
+**Tested with Claude Opus. Smaller models (Sonnet, Haiku) have not been tested yet.**
+
 The repository contains two versions of the same skill:
 - `fusion-360/` — **English** (skill name `fusion-360`);
 - `fusion-360-it/` — **Italian** (skill name `fusion-360-it`, instructions in [fusion-360-it/README.md](fusion-360-it/README.md)).
@@ -50,7 +52,7 @@ What happens:
 4. It creates the project folder and models in steps (sketch, extrude, holes), measuring after every step.
 5. Verification: constrained sketches, no elements in error, hole positions, minimum thickness; then it changes the main parameters to
    see that the model stays correct, and puts them back as they were.
-6. Delivery, in the project folder: `consegna\piastra-v1.f3d`, STEP, two images (iso and front), `resoconto.md` with the table
+6. Delivery, in the project folder: `consegna\YYYY-MM-DD-plate-v1.f3d` (the project folder name, with the day's date) and the STEP next to it, two images (iso and front), `resoconto.md` with the table
    «expected / measured / result» and the list of what was not checked.
 
 Other typical requests:

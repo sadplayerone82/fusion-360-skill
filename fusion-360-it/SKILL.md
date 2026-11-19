@@ -68,11 +68,13 @@ di funzione, ordine: riferimenti → volumi pieni → tagli → modifiche → ra
 ogni passo, ingombro, posizioni. Metodo: `references/metodo.md`; come calcolare: `references/verifica.md`.
 
 **J3 Progetto** — `python -X utf8 scripts/nuovo_progetto.py "<nome>" "<descrizione>"` crea la cartella nella cartella dei progetti
-delle impostazioni e la aggiunge all'elenco. Si lavora in un documento nuovo; **nel cloud non si salva** senza permesso (con la
+delle impostazioni e la aggiunge all'elenco. Si lavora in un documento nuovo: lo apre il primo passo con `--nuovo-documento`
+(`progetto_locale.py <cartella> passo <nome> <file.py> --atteso <mm³> --nuovo-documento`; senza, il passo usa il documento attivo);
+**nel cloud non si salva** senza permesso (con la
 licenza Personal, la più comune per uso personale, i posti sono 10: contali prima).
 
 **J4 Modellazione a passi** — un passo = uno schizzo o una feature, con `scripts/progetto_locale.py` (esegue, misura, salva lo script
-del passo, aggiorna registro e copia `.f3d`). Ogni script **controlla nella stessa chiamata** volume/ingombro/corpi contro l'atteso.
+del passo, aggiorna registro e copia `.f3d`; il primo passo con `--nuovo-documento`). Ogni script **controlla nella stessa chiamata** volume/ingombro/corpi contro l'atteso.
 Usa il codice delle **ricette provate** invece dell'API a memoria; prima di una funzione nuova, cercala (ricette, `comandi.md`,
 `apiDocumentation`): le chiamate inventate sono la prima causa di errore. Se una misura non torna, **cerca la causa**; non piegare il
 modello al numero. Un errore trovato si corregge **da solo**, senza rifare tutto.
@@ -95,10 +97,13 @@ chiamata, simboli e tabella fori come immagini calcolate dalla vista (`scripts/t
 **leggibilità** sul PDF ingrandito. Se un comando delle tavole resta in attesa (`scripts/registri.py comando`): «Fusion aspetta un clic:
 premi Esc in Fusion, poi dimmi fatto».
 
-**J9 Consegna** — `.f3d` (versione nuova, mai sovrascritta), uscite, immagini, `resoconto.md` (`assets/resoconto.md`): cosa hai fatto,
+**J9 Consegna** — `.f3d` (versione nuova, mai sovrascritta: `progetto_locale.py <cartella> versione --step` salva anche lo STEP;
+le altre uscite mettile in `consegna/` prima, così il commit le prende tutte), uscite, immagini, `resoconto.md` (`assets/resoconto.md`): cosa hai fatto,
 i numeri e cosa significano, **fino a che livello hai verificato ogni cosa e cosa non hai verificato**.
 
-**J10 Ripresa e correzioni** — lo stato del lavoro sta nel **registro del progetto** (fase, passo, attesi, domande aperte): domani, su
+**J10 Ripresa e correzioni** — lo stato del lavoro sta nel **registro del progetto**: passi e attesi in `registro.json`,
+fase e domande aperte in `stato.json` (`progetto_locale.py <cartella> stato --fase "<fase>" --domanda "<testo>"`, `--risolta N`;
+senza opzioni le mostra; `riapri` le stampa). Domani, su
 un altro PC o dopo che la conversazione è stata riassunta, si riparte da lì (`nuovo_progetto.py --cerca <parola>` per ritrovarlo).
 Una correzione = un parametro o una feature alla volta, versione nuova. Un pezzo prodotto che «non entra»: prima si misura (3 letture),
 e per la stampa si passa dalla skill di stampa, se installata.

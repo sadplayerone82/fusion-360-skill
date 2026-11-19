@@ -28,6 +28,23 @@ per ogni corpo: solido, visibile, volume, ingombro (`dimensioni_mm`), facce, mat
 0 schizzi liberi**, corpi tutti solidi e visibili, misure = attesi. Il rapporto trova davvero un elemento in errore (provato: schizzo
 di base cancellato → l'estrusione risulta in errore con il messaggio di Fusion).
 
+Campi dell'uscita (misure in mm, mm², mm³, g):
+
+| Campo | Significato |
+|---|---|
+| `designIntent` | tipo di documento: `parte`, `assieme` o `ibrido` (un documento creato da script è ibrido) |
+| `parametrico`, `unita` | cronologia attiva (vero/falso); unità di lunghezza del documento |
+| `parametri_utente` | nome, espressione, valore, unità di ogni parametro dell'utente |
+| `timeline.elementi` / `.non_sani` / `.sospesi` | quanti elementi; quelli in errore o avviso (indice, nome, stato, messaggio); quelli sospesi apposta (non sono errori) |
+| `schizzi` | per schizzo: `vincolato`, `profili`, `visibile`, `nota` (testo: vedi sopra) |
+| `schizzi_non_vincolati` | nomi degli schizzi non completamente vincolati: deve essere vuoto |
+| `corpi` | per corpo, nelle coordinate del **suo** componente: `solido`, `visibile`, `volume_mm3`, `area_mm2`, `ingombro_min_mm`/`ingombro_max_mm`, `dimensioni_mm`, `facce`, `spigoli`, `shell`, `materiale`, `massa_g`, `baricentro_mm` |
+| `componenti`, `occorrenze` | quanti componenti e quante occorrenze |
+| `assieme.ingombro_visibili` / `.ingombro_tutti` | ingombro vero dell'assieme (corpi in posizione) dei soli visibili / di tutti: `min_mm`, `max_mm`, `dimensioni_mm` |
+| `assieme.corpi_visibili` / `.corpi_nascosti` | quanti corpi visibili; nomi di quelli nascosti |
+| `cancello_J5` (solo `--breve`) | vero se 0 elementi in errore, 0 schizzi liberi e tutti i corpi solidi; misure = attesi resta da confrontare a mano |
+| `elementi_in_errore` (solo `--breve`) | uguale a `timeline.non_sani` |
+
 ## 4. Assiemi
 Dopo ogni giunto e alla fine: interferenza fra le coppie di componenti (`analyzeInterference`) = 0, salvo quelle volute e dichiarate;
 posizione dei corpi rispetto all'atteso. **Non basta**: 0 dice solo che i pezzi non si compenetrano, possono toccarsi. Dove serve spazio,

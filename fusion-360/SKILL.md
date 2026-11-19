@@ -69,11 +69,13 @@ by function, order: references → solid volumes → cuts → modifications → 
 every step, bounding box, positions. Method: `references/metodo.md`; how to compute: `references/verifica.md`.
 
 **J3 Project** — `python -X utf8 scripts/nuovo_progetto.py "<name>" "<description>"` creates the folder in the projects folder
-from the settings and adds it to the list. You work in a new document; **nothing is saved to the cloud** without permission (with the
+from the settings and adds it to the list. You work in a new document: the first step opens it with `--nuovo-documento`
+(`progetto_locale.py <folder> passo <name> <file.py> --atteso <mm³> --nuovo-documento`; without it, the step uses the active document);
+**nothing is saved to the cloud** without permission (with the
 Personal license, the most common for personal use, there are 10 slots: count them first).
 
 **J4 Modeling in steps** — one step = one sketch or one feature, with `scripts/progetto_locale.py` (runs, measures, saves the step
-script, updates the project log and the `.f3d` copy). Every script **checks in the same call** volume/bounding box/bodies against the expected value.
+script, updates the project log and the `.f3d` copy; the first step with `--nuovo-documento`). Every script **checks in the same call** volume/bounding box/bodies against the expected value.
 Use the code of the **tested recipes** instead of the API from memory; before a new function, look it up (recipes, `comandi.md`,
 `apiDocumentation`): invented calls are the first cause of errors. If a measurement does not match, **look for the cause**; do not bend the
 model to the number. An error found is fixed **on its own**, without redoing everything.
@@ -96,10 +98,13 @@ call, symbols and hole table as images computed from the view (`scripts/tavola_s
 **legibility** on the zoomed-in PDF. If a drawing command stays waiting (`scripts/registri.py comando`): «Fusion is waiting for a click:
 press Esc in Fusion, then tell me done».
 
-**J9 Delivery** — `.f3d` (new version, never overwritten), outputs, images, `resoconto.md` (`assets/resoconto.md`): what you did,
+**J9 Delivery** — `.f3d` (new version, never overwritten: `progetto_locale.py <folder> versione --step` also saves the STEP;
+put the other outputs in `consegna/` first, so the commit takes them all), outputs, images, `resoconto.md` (`assets/resoconto.md`): what you did,
 the numbers and what they mean, **to what level you verified each thing and what you did not verify**.
 
-**J10 Resuming and corrections** — the state of the work lives in the **project log** (phase, step, expected values, open questions): tomorrow, on
+**J10 Resuming and corrections** — the state of the work lives in the **project log**: steps and expected values in `registro.json`,
+phase and open questions in `stato.json` (`progetto_locale.py <folder> stato --fase "<phase>" --domanda "<text>"`, `--risolta N`;
+without options it shows them; `riapri` prints them). Tomorrow, on
 another PC or after the conversation has been summarized, you restart from there (`nuovo_progetto.py --cerca <word>` to find it).
 A correction = one parameter or one feature at a time, new version. A manufactured part that «does not fit»: first measure it (3 readings),
 and for printing go through the printing skill, if installed.

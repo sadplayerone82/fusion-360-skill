@@ -38,7 +38,9 @@ un ingombro di pochi centesimi, misura gli estremi veri prima di toccare il mode
 `progetto_locale.py <cartella> passo <nome> <file.py> --atteso V` esegue il file, poi misura da solo (volume totale e per corpo ad alta
 precisione, elementi della timeline in errore) e confronta col volume atteso (0,01 %): se non torna o c'è un elemento in errore il
 passo **non** viene registrato. Se torna, salva lo script in `passi/`, una riga in `registro.json`, la copia `progetto.f3d` e fa un
-commit git (se la cartella è un repository). Gli altri comandi: `misura`, `riapri`, `rigioca`, `versione`.
+commit git (se la cartella è un repository). Al primo passo aggiungi `--nuovo-documento` (apre un documento nuovo; senza, usa quello
+attivo). Gli altri comandi: `misura`, `riapri`, `rigioca`, `versione [--step]`, `stato [--fase …] [--domanda …] [--risolta N]`
+(l'elenco completo è in testa allo script, o con `--help`).
 
 Le ricette dei file `ricette-*.md` usano a volte un'intestazione **semplificata** delle prove (con `vol` da `b.volume`, `rett`,
 `blocco`…): per un modello vero vale quella qui sopra.

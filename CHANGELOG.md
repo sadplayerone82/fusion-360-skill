@@ -2,6 +2,22 @@
 
 Versions follow semantic versioning (major.minor.patch); the most recent is at the top.
 
+## [1.1.2] — 2026-11-19
+Small fixes from the install test (same changes in both languages).
+
+### Added
+- `progetto_locale.py ... passo ... --nuovo-documento`: the first step opens a new document (before, it worked in the active one).
+- `progetto_locale.py <folder> stato [--fase …] [--domanda …] [--risolta N]`: phase and open questions in `stato.json`
+  (no Fusion needed); `riapri` prints them.
+- `progetto_locale.py <folder> versione --step`: also exports `consegna/<name>-vN.step`; the git commit now comes after the exports.
+- `references/verifica.md`: table of the `rapporto_modello.py` output fields.
+
+### Fixed
+- English version: `impostazioni.py --crea` writes `"lingua": "en"` (it wrote `"it"`).
+- `SKILL.md` J3/J4/J9/J10, `references/ricette.md` §1 and the README example now match the scripts (delivery file name
+  `YYYY-MM-DD-<name>-v1.f3d`).
+- README: tested with Claude Opus only; smaller models (Sonnet, Haiku) not tested yet.
+
 ## [1.1.1] — 2026-11-19
 
 ### Fixed

@@ -50,6 +50,6 @@ m.setWithCoordinateSystem(adsk.core.Point2D.create(0, 0), adsk.core.Vector2D.cre
 calibro. Su foto vere prospettiva e distorsione non sono state provate: dichiaralo. Zigrinature e prese: non provate.
 
 ## 5. Riprendere dopo una chiusura di Fusion
-Ogni progetto ha: `progetto.f3d` aggiornato dopo ogni passo verificato, `passi/NN-nome.py`, `registro.json`. Dopo una chiusura:
+Ogni progetto ha: `progetto.f3d` aggiornato dopo ogni passo verificato, `passi/NN-nome.py`, `registro.json` e `stato.json` (fase e domande aperte, se scritte con `stato`). Dopo una chiusura:
 `Progetto(...).riapri()` (dalla copia, confronta con l'ultima riga del registro) oppure `rigioca()` (rifà i passi dagli script, documento
 nuovo). Provato entrambi: stesso volume del registro. Mai ricominciare a memoria.

@@ -28,6 +28,23 @@ for each body: solid, visible, volume, bounding box (`dimensioni_mm`), faces, ma
 0 free sketches**, all bodies solid and visible, measurements = expected values. The report really finds an element in error (tested: base
 sketch deleted → the extrude shows as in error with Fusion's message).
 
+Output fields (the keys are Italian and stay as they are; measurements in mm, mm², mm³, g):
+
+| Field | Meaning |
+|---|---|
+| `designIntent` | document type: `parte` (part), `assieme` (assembly) or `ibrido` (hybrid; a document created by a script is hybrid) |
+| `parametrico`, `unita` | timeline active (true/false); length unit of the document |
+| `parametri_utente` | user parameters: `nome` (name), `espressione` (expression), `valore` (value), `unita` (unit) |
+| `timeline.elementi` / `.non_sani` / `.sospesi` | number of items; items in error or warning (`indice`, `nome`, `stato`, `messaggio`); items suppressed on purpose (not errors) |
+| `schizzi` | sketches: `vincolato` (fully constrained), `profili` (profiles), `visibile`, `nota` (text sketches, see above) |
+| `schizzi_non_vincolati` | names of the sketches not fully constrained: must be empty |
+| `corpi` | bodies, in the coordinates of **their own** component: `solido` (solid), `visibile`, `volume_mm3`, `area_mm2`, `ingombro_min_mm`/`ingombro_max_mm` (bounding box), `dimensioni_mm` (size), `facce` (faces), `spigoli` (edges), `shell`, `materiale`, `massa_g`, `baricentro_mm` (center of mass) |
+| `componenti`, `occorrenze` | number of components and of occurrences |
+| `assieme.ingombro_visibili` / `.ingombro_tutti` | real assembly bounding box (bodies in place) of the visible bodies only / of all: `min_mm`, `max_mm`, `dimensioni_mm` |
+| `assieme.corpi_visibili` / `.corpi_nascosti` | number of visible bodies; names of the hidden ones |
+| `cancello_J5` (only `--breve`) | the J5 gate: true if 0 items in error, 0 free sketches and all bodies solid; measurements = expected still has to be compared by you |
+| `elementi_in_errore` (only `--breve`) | same as `timeline.non_sani` (items in error) |
+
 ## 4. Assemblies
 After every joint and at the end: interference between pairs of components (`analyzeInterference`) = 0, except the intended and declared ones;
 position of the bodies against the expected. **It is not enough**: 0 only says the parts do not interpenetrate, they may touch. Where space is needed,

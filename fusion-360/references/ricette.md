@@ -38,7 +38,9 @@ a bounding box by a few hundredths, measure the true extremes before touching th
 `progetto_locale.py <cartella> passo <nome> <file.py> --atteso V` runs the file, then measures by itself (total and per-body volume at high
 accuracy, timeline elements in error) and compares with the expected volume (0.01 %): if it does not match or there is an element in error the
 step is **not** recorded. If it matches, it saves the script in `passi/`, a line in `registro.json`, the copy `progetto.f3d` and makes a
-git commit (if the folder is a repository). The other commands: `misura`, `riapri`, `rigioca`, `versione`.
+git commit (if the folder is a repository). On the first step add `--nuovo-documento` (opens a new document; without it, the active one
+is used). The other commands: `misura`, `riapri`, `rigioca`, `versione [--step]`, `stato [--fase …] [--domanda …] [--risolta N]`
+(the full list is at the top of the script, or with `--help`).
 
 The recipes in the `ricette-*.md` files sometimes use a **simplified** test header (with `vol` from `b.volume`, `rett`,
 `blocco`…): for a real model the one above applies.

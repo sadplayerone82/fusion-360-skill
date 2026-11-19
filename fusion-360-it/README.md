@@ -13,6 +13,8 @@
 Questa skill fa lavorare Claude in **Autodesk Fusion** come un progettista CAD: dalla richiesta al **modello parametrico controllato**,
 salvato in un file `.f3d` sul PC, con un resoconto che dice che cosa è stato verificato e che cosa no.
 
+**Provata con Claude Opus. Con modelli più piccoli (Sonnet, Haiku) non è ancora stata provata.**
+
 Il repository contiene due versioni della stessa skill: `fusion-360/` in **inglese** (nome `fusion-360`) e questa cartella,
 `fusion-360-it/`, in **italiano** (nome `fusion-360-it`). **Installane una sola**: fanno la stessa cosa e non vanno installate insieme.
 
@@ -54,7 +56,7 @@ Che cosa succede:
 4. Crea la cartella del progetto e modella a passi (schizzo, estrusione, fori), misurando dopo ogni passo.
 5. Verifica: schizzi vincolati, nessun elemento in errore, posizioni dei fori, spessore minimo; poi cambia i parametri principali per
    vedere che il modello resta giusto, e li rimette com'erano.
-6. Consegna, nella cartella del progetto: `consegna\piastra-v1.f3d`, STEP, due immagini (iso e fronte), `resoconto.md` con la tabella
+6. Consegna, nella cartella del progetto: `consegna\AAAA-MM-GG-piastra-v1.f3d` (il nome della cartella del progetto, con la data del giorno) e lo STEP accanto, due immagini (iso e fronte), `resoconto.md` con la tabella
    «atteso / misurato / esito» e l'elenco di ciò che non è stato controllato.
 
 Altre richieste tipiche:

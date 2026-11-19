@@ -50,6 +50,6 @@ m.setWithCoordinateSystem(adsk.core.Point2D.create(0, 0), adsk.core.Vector2D.cre
 caliper. On real photos perspective and distortion have not been tested: declare it. Knurling and grips: not tested.
 
 ## 5. Resuming after Fusion closes
-Every project has: `progetto.f3d` updated after each verified step, `passi/NN-nome.py`, `registro.json`. After a close:
+Every project has: `progetto.f3d` updated after each verified step, `passi/NN-nome.py`, `registro.json`, and `stato.json` (phase and open questions, if written with `stato`). After a close:
 `Progetto(...).riapri()` (from the copy, compare with the last line of the log) or `rigioca()` (replays the steps from the scripts, new
 document). Both tested: same volume as the log. Never start over from memory.

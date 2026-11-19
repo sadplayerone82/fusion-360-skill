@@ -13,7 +13,7 @@ import json, os, sys
 PREDEFINITE = {
     "versione": 1,
     "cartella_progetti": os.path.join(os.path.expanduser("~"), "Documents", "Progetti-Fusion"),
-    "lingua": "it",                                   # language of the messages and of the Fusion interface (command names)
+    "lingua": "en",                                  # language of the messages and of the Fusion interface (command names)
     "unita": "mm",                                    # units shown in new projects (the API always works in cm)
     "mcp_url": "http://127.0.0.1:27182/mcp",          # official Fusion MCP server
     "skill_stampa": "stampa-3d",                      # skill to use if the user declares FDM printing; null if not installed
